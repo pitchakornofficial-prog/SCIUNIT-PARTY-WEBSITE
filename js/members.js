@@ -1,381 +1,397 @@
-(() => {
-  const MEMBERS = [
-    {
-      id: "Leader-01",
-      category: "แคนดิเดตหัวหน้าพรรค",
-      hero: true,
-      role: "หัวหน้าพรรค",
-      name: "นายธเนศ เฉลียวยิ่ง",
-      img: "assets/members/leader-01.png",
+const MEMBERS = [
+  {
+    id: "a-01",
+    category: "แคนดิเดตหัวหน้าพรรค",
+    hero: true,
+    role: "แคนดิเดตหัวหน้าพรรค",
+    name: "นายธเนศ เฉลียวยิ่ง",
+    img: "assets/members/a01.JPG",
+    personal: ["ชื่อเล่น: มะอะอุ", "สาขา: คณิตศาสตร์", "ชั้นปี: 2"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "b-01",
+    category: "รองหัวหน้าพรรค",
+    hero: true,
+    role: "รองหัวหน้าพรรคคนที่ 1",
+    name: "นายวงศธร นามประกอบ",
+    img: "assets/members/b01.JPG",
+    personal: ["ชื่อเล่น: ซี", "สาขา: คณิตศาสตร์", "ชั้นปี: 2"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "b-02",
+    category: "รองหัวหน้าพรรค",
+    hero: true,
+    role: "รองหัวหน้าพรรคคนที่ 2",
+    name: "นางสาววราภรณ์ ฟอมไธสง",
+    img: "assets/members/b02.JPG",
+    personal: ["ชื่อเล่น: วาลา", "สาขา: ชีววิทยา", "ชั้นปี: 2"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "c-01",
+    category: "ฝ่ายงาน",
+    hero: true,
+    role: "การเงินและงบประมาณ",
+    name: "นางสาวอัญชลี คุมดี",
+    img: "assets/members/c01.JPG",
+    personal: [
+      "ชื่อเล่น: จ๊ะจ๋า",
+      "สาขา: อาชีวอนามัยและความปลอดภัย",
+      "ชั้นปี: 3",
+    ],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "c-02",
+    category: "ฝ่ายงาน",
+    hero: true,
+    role: "ฝ่ายประชาสัมพันธ์",
+    name: "นายพิชชากร คำพรม",
+    img: "assets/members/c02.JPG",
+    personal: [
+      "ชื่อเล่น: เฟิร์ส",
+      "สาขา: วิทยาการข้อมูลและนวัตกรรมซอฟแวร์",
+      "ชั้นปี: 1",
+    ],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "c-03",
+    category: "ฝ่ายงาน",
+    hero: true,
+    role: "เลขานุการพรรค",
+    name: "นางสาวรุจิศยา อุปนิ",
+    img: "assets/members/c03.JPG",
+    personal: ["ชื่อเล่น: มิ้นท์", "สาขา: คณิตศาสตร์", "ชั้นปี: 2"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "c-04",
+    category: "ฝ่ายงาน",
+    hero: true,
+    role: "ฝ่ายยุทธศาสตร์การเลือกตั้ง",
+    name: "นายอานนท์ เมืองโคตร อานนท์",
+    img: "assets/members/c04.JPG",
+    personal: ["ชื่อเล่น: อานนท์", "สาขา: คณิตศาสตร์", "ชั้นปี: 2"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "c-05",
+    category: "ฝ่ายงาน",
+    hero: true,
+    role: "นายทะเบียนพรรค",
+    name: "นางสาวญานิกา คำศิลา",
+    img: "assets/members/c05.JPG",
+    personal: ["ชื่อเล่น: แพรไหม", "สาขา: คณิตศาสตร์", "ชั้นปี: 3"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "c-06",
+    category: "ฝ่ายงาน",
+    hero: true,
+    role: "โฆษกพรรค",
+    name: "นายรัฐศาสตร์ ครองยุติ",
+    img: "assets/members/c06.JPG",
+    personal: ["ชื่อเล่น: ทะเล", "สาขา: ชีววิทยา", "ชั้นปี: 2"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "c-07",
+    category: "ฝ่ายงาน",
+    hero: true,
+    role: "ที่ปรึกษาพรรค",
+    name: "นายปิยพงษ์ หมื่นขัน",
+    img: "assets/members/c07.JPG",
+    personal: ["ชื่อเล่น: แมททิว", "สาขา: จุลชีววิทยา", "ชั้นปี: 1"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "d-01",
+    category: "กรรมการบริหาร",
+    hero: true,
+    role: "กรรมการบริหาร",
+    name: "นางสาวรุจินทรา บุษราคัม",
+    img: "assets/members/d01.JPG",
+    personal: ["ชื่อเล่น: น้ำขิง", "สาขา: จุลชีววิทยา", "ชั้นปี: 1"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "d-02",
+    category: "กรรมการบริหาร",
+    hero: true,
+    role: "กรรมการบริหาร",
+    name: "นางสาวโยษิตา กองสุข",
+    img: "assets/members/d02.JPG",
+    personal: ["ชื่อเล่น: โย", "สาขา: ฟิสิกส์ชีวการแพทย์", "ชั้นปี: 1"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "d-03",
+    category: "กรรมการบริหาร",
+    hero: true,
+    role: "กรรมการบริหาร",
+    name: "นายธนากร ศรีคำ",
+    img: "assets/members/d03.JPG",
+    personal: ["ชื่อเล่น: นานิ", "สาขา: จุลชีววิทยา", "ชั้นปี: 1"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "d-04",
+    category: "กรรมการบริหาร",
+    hero: true,
+    role: "กรรมการบริหาร",
+    name: "นายอนันต์โชคไพฑูรย์ ยืนยง",
+    img: "assets/members/d04.JPG",
+    personal: ["ชื่อเล่น: ฟิลม์", "สาขา: คณิตศาสตร์", "ชั้นปี: 2"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+  {
+    id: "d-05",
+    category: "กรรมการบริหาร",
+    hero: true,
+    role: "กรรมการบริหาร",
+    name: "นายจักรพันธ์ แก่นลา",
+    img: "assets/members/d05.JPG",
+    personal: ["ชื่อเล่น: เปตอง", "สาขา: ชีววิทยา", "ชั้นปี: 1"],
+    work: ["อนุกรรมการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
+    education: ["ปัจจุบัน: มหาวิทยาลัยราชภัฏอุบลราชธานี"],
+  },
+];
 
-      personal: [
-        "ชื่อเล่น: มะอะอุ",
-        "สาขา: คณิตศาสตร์",
-        "ชั้นปีที่ 2",
-        "IG: maou_tanet",
-      ],
-      work: [
-        "กรรมการฝ่ายวิชาการสภาเด็กและเยาวชนตำบลสวาย (2565)",
-        "ประธานฝ่ายวิชาการสภาเด็กและเยาวชนตำบลสวาย (2566)",
-        "ที่ปรึกษาสภาเด็กและเยาวชนตำบลสวาย (2567)",
-        "อนุกรรมการฝ่ายวิชาการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)",
-        "ประธานฝ่ายวิชาการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)",
-      ],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
+const CATEGORY_ORDER = [
+  "แคนดิเดตหัวหน้าพรรค",
+  "รองหัวหน้าพรรค",
+  "ฝ่ายงาน",
+  "กรรมการบริหาร",
+];
 
-    {
-      id: "DeputyLeader-01",
-      category: "รองหัวหน้าพรรค",
-      role: "รองหัวหน้าพรรคคนที่ 1",
-      name: "นายวงศธร นามประกอบ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ซี", "สาขา: คณิตศาสตร์", "ชั้นปีที่ 2"],
-      work: [
-        "อนุกรรมการฝ่ายกีฬาสโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)",
-        "ประธานฝ่ายกีฬาปี 68 (2568)",
-      ],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "DeputyLeader-02",
-      category: "รองหัวหน้าพรรค",
-      role: "รองหัวหน้าพรรคคนที่ 2",
-      name: "นางสาววราภรณ์ ฟอมไธสง",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ลาวา", "สาขา: ชีววิทยา", "ชั้นปีที่ 2"],
-      work: [
-        "อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)",
-        "ประธานฝ่ายประชาสัมพันธ์ปี 68 (2568)",
-      ],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-
-    {
-      id: "Department-01",
-      category: "ฝ่ายงาน",
-      role: "ฝ่ายประชาสัมพันธ์",
-      name: "นายพิชชากร คำพรม",
-      img: "assets/members/final01.png",
-
-      personal: [
-        "ชื่อเล่น: เฟิร์ส",
-        "สาขา: วิทยาการข้อมูลและนวัตกรรมซอฟต์แวร์",
-        "ชั้นปีที่ 1",
-        "IG: p1tch4_a",
-      ],
-      work: [
-        "ประธานแผนกคอมพิวเตอร์ธุรกิจ (2565)",
-        "นายทะเบียนองค์การนักวิชาชีพในอนาคตแห่งประเทศไทย (2565)",
-        "อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)",
-      ],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Department-02",
-      category: "ฝ่ายงาน",
-      role: "ฝ่ายงาน",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Department-03",
-      category: "ฝ่ายงาน",
-      role: "ฝ่ายงาน",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Department-04",
-      category: "ฝ่ายงาน",
-      role: "ฝ่ายงาน",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Department-05",
-      category: "ฝ่ายงาน",
-      role: "ฝ่ายงาน",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Department-06",
-      category: "ฝ่ายงาน",
-      role: "ฝ่ายงาน",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Department-07",
-      category: "ฝ่ายงาน",
-      role: "ฝ่ายงาน",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายประชาสัมพันธ์สโมสรนักศึกษาคณะวิทยาศาสตร์ (2568)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-
-    {
-      id: "Committee-01",
-      category: "กรรมการบริหาร",
-      role: "กรรมการบริหาร",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายวิชาการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Committee-02",
-      category: "กรรมการบริหาร",
-      role: "กรรมการบริหาร",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายวิชาการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Committee-03",
-      category: "กรรมการบริหาร",
-      role: "กรรมการบริหาร",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายวิชาการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Committee-04",
-      category: "กรรมการบริหาร",
-      role: "กรรมการบริหาร",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายวิชาการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-    {
-      id: "Committee-05",
-      category: "กรรมการบริหาร",
-      role: "กรรมการบริหาร",
-      name: "ชื่อ",
-      img: "assets/members/final01.png",
-
-      personal: ["ชื่อเล่น: ", "สาขา: ", "ชั้นปีที่ 1", "IG: "],
-      work: ["อนุกรรมการฝ่ายวิชาการสโมสรนักศึกษาคณะวิทยาศาสตร์ (2567)"],
-      education: ["ปัจจุบัน: มหาวิทยาลัยอุบลราชธานี"],
-    },
-  ];
-
-  // กำหนดลำดับหมวด
-  const CATEGORY_ORDER = [
-    "แคนดิเดตหัวหน้าพรรค",
-    "รองหัวหน้าพรรค",
-    "ฝ่ายงาน",
-    "กรรมการบริหาร",
-  ];
-
+(function () {
   const root = document.getElementById("members-root");
   if (!root) return;
 
-  const heroMember = MEMBERS.find((m) => m.hero);
-  const heroCategory = heroMember ? heroMember.category : null;
+  const escapeHtml = (s) =>
+    String(s ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
 
-  const grouped = MEMBERS.reduce((acc, m) => {
-    (acc[m.category] ||= []).push(m);
-    return acc;
-  }, {});
+  const iconFor = (type) => {
+    if (type === "personal") return "fa-regular fa-user";
+    if (type === "work") return "fa-regular fa-briefcase";
+    if (type === "edu") return "fa-regular fa-graduation-cap";
+    return "fa-regular fa-circle";
+  };
 
-  const existingCategories = Object.keys(grouped);
+  const groupByCategory = (items) => {
+    const map = new Map();
+    items.forEach((m) => {
+      const key = m.category || "อื่น ๆ";
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(m);
+    });
+    return map;
+  };
 
-  const orderedFromList = CATEGORY_ORDER.filter((c) =>
-    existingCategories.includes(c),
-  );
-  const remaining = existingCategories
-    .filter((c) => !CATEGORY_ORDER.includes(c))
-    .sort((a, b) => a.localeCompare(b, "th"));
+  const catMap = groupByCategory(MEMBERS);
+  const orderedCats = [
+    ...CATEGORY_ORDER.filter((c) => catMap.has(c)),
+    ...[...catMap.keys()].filter((c) => !CATEGORY_ORDER.includes(c)),
+  ];
 
-  let categories = [...orderedFromList, ...remaining];
-  if (heroCategory && !categories.includes(heroCategory))
-    categories = [heroCategory, ...categories];
+  // =========================
+  // RENDER
+  // =========================
+  root.innerHTML = orderedCats
+    .map((cat) => {
+      const list = catMap.get(cat) || [];
+      return `
+        <section class="members-section">
+          <h2 class="members-section-title">${escapeHtml(cat)}</h2>
 
-  // render cards
-  root.innerHTML = "";
+          <div class="members-grid">
+            ${list
+              .map(
+                (m) => `
+                <article class="member-item" data-id="${escapeHtml(
+                  m.id,
+                )}" tabindex="0" role="button" aria-label="เปิดรายละเอียด ${escapeHtml(
+                  m.name,
+                )}">
+                  
+                  <!-- การ์ด: รูปล้วน -->
+                  <div class="member-card">
+                    <div class="shine"></div>
+                    <img src="${escapeHtml(m.img)}" alt="${escapeHtml(
+                      m.name,
+                    )}" loading="lazy"/>
+                  </div>
 
-  for (const cat of categories) {
-    const isHero = cat === heroCategory;
+                  <!-- ข้อความ: อยู่นอกการ์ด -->
+                  <div class="member-meta">
+                    <div class="role">${escapeHtml(m.role || "")}</div>
+                    <div class="name">${escapeHtml(m.name || "")}</div>
+                  </div>
 
-    const section = document.createElement("section");
-    section.className = "category" + (isHero ? " category--hero" : "");
-
-    section.innerHTML = `
-      <div class="category-head">
-        <div class="category-line"></div>
-        <h2 class="category-title">${cat}</h2>
-        <div class="category-line"></div>
-      </div>
-      <div class="member-grid" data-category="${cat}"></div>
-    `;
-
-    const grid = section.querySelector(".member-grid");
-
-    const list = isHero
-      ? grouped[cat].filter((m) => m.hero)
-      : grouped[cat].filter((m) => !m.hero);
-
-    list.forEach((m) => {
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "member-card";
-      card.dataset.id = m.id;
-
-      card.innerHTML = `
-        <div class="member-media">
-          <img src="${m.img}" alt="${m.name}" loading="lazy">
-        </div>
-        <div class="member-meta">
-          <div class="member-role">${m.role}</div>
-          <div class="member-name">${m.name}<span class="chev">›</span></div>
-        </div>
+                </article>
+              `,
+              )
+              .join("")}
+          </div>
+        </section>
       `;
+    })
+    .join("");
 
-      grid.appendChild(card);
-    });
+  // =========================
+  // MODAL
+  // =========================
+  const overlay = document.createElement("div");
+  overlay.className = "modal-overlay";
+  overlay.innerHTML = `
+  <div class="modal" role="dialog" aria-modal="true" aria-label="รายละเอียดสมาชิก">
+    <div class="modal-inner">
 
-    root.appendChild(section);
-  }
+      <!-- ฝั่งซ้าย : รูป -->
+      <div class="modal-left">
+        <img id="modalImg" alt="" />
+      </div>
 
-  // ===== Modal =====
-  const backdrop = document.querySelector(".modal-backdrop");
-  const modal = document.querySelector(".modal");
-  const closeBtn = document.querySelector(".modal-close");
+      <!-- ฝั่งขวา : รายละเอียด -->
+      <div class="modal-right">
 
-  const mImg = document.getElementById("mImg");
-  const mRole = document.getElementById("mRole");
-  const mName = document.getElementById("mName");
+        <!-- ปุ่มปิด (มุมขวาบนจริง) -->
+        <button class="modal-close" id="modalClose" aria-label="ปิด">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
 
-  // สร้างพื้นที่เนื้อหา (แทน mDesc เดิม) ให้รองรับหัวข้อ
-  // หมายเหตุ: members.html เดิมมี #mDesc อยู่แล้ว ใช้อันนั้นเป็น container ได้
-  const mDesc = document.getElementById("mDesc");
+        <!-- ชื่อ + ตำแหน่ง -->
+        <div class="modal-title">
+          <h2 class="big" id="modalName"></h2>
+          <p class="sub" id="modalRole"></p>
+        </div>
 
-  const byId = new Map(MEMBERS.map((m) => [m.id, m]));
+        <!-- ข้อมูลส่วนตัว -->
+        <div class="info-block">
+          <h4>
+            <i class="fa-solid fa-id-card"></i>
+            ข้อมูลส่วนตัว
+          </h4>
+          <ul class="info-list" id="modalPersonal"></ul>
+        </div>
 
-  function iconFor(type) {
-    if (type === "personal") return '<i class="fa-solid fa-user"></i>';
-    if (type === "work") return '<i class="fa-solid fa-briefcase"></i>';
-    if (type === "edu") return '<i class="fa-solid fa-graduation-cap"></i>';
-    return '<i class="fa-solid fa-circle"></i>';
-  }
+        <!-- ประวัติการทำงาน -->
+        <div class="info-block">
+          <h4>
+            <i class="fa-solid fa-briefcase"></i>
+            ประวัติการทำงาน
+          </h4>
+          <ul class="info-list" id="modalWork"></ul>
+        </div>
 
-  function renderList(items, type) {
-    if (!items || !items.length) return "";
-    return `
-      <ul class="section-list">
-        ${items
-          .map(
-            (t) => `
-          <li class="section-item">
-            <div class="ico">${iconFor(type)}</div>
-            <div class="txt">${t}</div>
-          </li>
-        `,
-          )
-          .join("")}
-      </ul>
-    `;
-  }
+        <!-- ประวัติการศึกษา -->
+        <div class="info-block">
+          <h4>
+            <i class="fa-solid fa-graduation-cap"></i>
+            ประวัติการศึกษา
+          </h4>
+          <ul class="info-list" id="modalEdu"></ul>
+        </div>
 
-  function openModal(member) {
-    mImg.src = member.img;
-    mImg.alt = member.name;
+      </div>
+    </div>
+  </div>
+`;
 
-    mRole.textContent = member.role || "";
-    mName.textContent = member.name || "";
+  document.body.appendChild(overlay);
 
-    const personal = member.personal || [];
-    const work = member.work || [];
-    const education = member.education || [];
+  // refs
+  const modalImg = overlay.querySelector("#modalImg");
+  const modalName = overlay.querySelector("#modalName");
+  const modalRole = overlay.querySelector("#modalRole");
+  const modalPersonal = overlay.querySelector("#modalPersonal");
+  const modalWork = overlay.querySelector("#modalWork");
+  const modalEdu = overlay.querySelector("#modalEdu");
+  const modalClose = overlay.querySelector("#modalClose");
 
-    // เนื้อหาด้านขวา
-    mDesc.innerHTML = `
-      <div class="section-tag">ข้อมูลส่วนตัว</div>
-      ${renderList(personal, "personal")}
+  // helper: fill list
+  const fillList = (ul, arr) => {
+    const items = Array.isArray(arr) ? arr : [];
+    ul.innerHTML = items.length
+      ? items.map((t) => `<li>${escapeHtml(t)}</li>`).join("")
+      : "<li>-</li>";
+  };
 
-      <div class="section-divider"></div>
-
-      <div class="section-tag">ประวัติการทำงาน</div>
-      ${renderList(work, "work")}
-
-      ${
-        education.length
-          ? `
-        <div class="section-divider"></div>
-        <div class="section-tag">ประวัติการศึกษา</div>
-        ${renderList(education, "edu")}
-      `
-          : ""
-      }
-    `;
-
-    backdrop.hidden = false;
-    modal.hidden = false;
+  const openModal = (member) => {
+    overlay.classList.add("open");
     document.body.style.overflow = "hidden";
-    closeBtn.focus();
-  }
 
-  function closeModal() {
-    backdrop.hidden = true;
-    modal.hidden = true;
+    modalImg.src = member.img || "";
+    modalImg.alt = member.name || "";
+
+    modalName.textContent = member.name || "";
+    modalRole.textContent = member.role
+      ? `${member.role}${member.category ? " • " + member.category : ""}`
+      : member.category || "";
+
+    fillList(modalPersonal, member.personal);
+    fillList(modalWork, member.work);
+    fillList(modalEdu, member.education);
+
+    setTimeout(() => modalClose.focus(), 0);
+  };
+
+  const closeModal = () => {
+    overlay.classList.remove("open");
     document.body.style.overflow = "";
-  }
+  };
 
+  // open by click
   root.addEventListener("click", (e) => {
-    const btn = e.target.closest(".member-card");
-    if (!btn) return;
-
-    btn.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "center",
-    });
-
-    const member = byId.get(btn.dataset.id);
-    setTimeout(() => openModal(member), 160);
+    const item = e.target.closest(".member-item");
+    if (!item) return;
+    const id = item.dataset.id;
+    const member = MEMBERS.find((m) => m.id === id);
+    if (member) openModal(member);
   });
 
-  closeBtn.addEventListener("click", closeModal);
-  backdrop.addEventListener("click", closeModal);
+  // open by Enter / Space
+  root.addEventListener("keydown", (e) => {
+    const item = e.target.closest(".member-item");
+    if (!item) return;
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const id = item.dataset.id;
+      const member = MEMBERS.find((m) => m.id === id);
+      if (member) openModal(member);
+    }
+  });
+
+  // close
+  modalClose.addEventListener("click", closeModal);
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
   window.addEventListener("keydown", (e) => {
-    if (!modal.hidden && e.key === "Escape") closeModal();
+    if (e.key === "Escape" && overlay.classList.contains("open")) closeModal();
   });
 })();

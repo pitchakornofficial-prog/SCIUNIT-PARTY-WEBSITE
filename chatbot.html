@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHATBOT | SCI UNIT</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="no-nav">
+    <main class="container page">
+      <header class="members-hero">
+        <h1 class="members-title">แชทบอท (SCI UNIT Assistant)</h1>
+        <p class="members-sub">
+          ถามเรื่องนโยบาย, วันเลือกตั้ง, ช่องทางติดต่อ หรือข้อมูลพรรคได้ทันที
+        </p>
+
+        <p class="type-line">
+          พรรค SCI UNIT <span class="type-accent">พร้อมที่จะ</span>
+          <span id="typeTarget"></span><span class="cursor">|</span>
+        </p>
+      </header>
+
+      <!-- ✅ Layout 2 คอลัมน์ (ซ้ายข้อมูล / ขวาแชท) -->
+      <section class="chat-page-grid">
+        <!-- Left: Tips / Shortcut -->
+        <aside class="chat-side card">
+          <div class="chat-side-title">
+            <i class="fa-solid fa-circle-info"></i> วิธีใช้งาน
+          </div>
+
+          <ul class="chat-side-list">
+            <li>พิมพ์คำถาม แล้วกด “ส่ง”</li>
+            <li>กดชิปคำถามลัดได้</li>
+            <li>กด “ล้างแชท” ถ้าจะเริ่มใหม่</li>
+          </ul>
+
+          <div class="chat-side-box">
+            <div class="chat-side-box-title">คำแนะนำ</div>
+            <div class="chat-side-box-desc">
+              ตอนนี้เป็นโหมดเดโม่ (ตอบจากฐานข้อมูลสั้น ๆ ในเว็บ)
+            </div>
+          </div>
+
+          <button class="chat-clear" id="chatClear" type="button">
+            <i class="fa-solid fa-eraser"></i> ล้างแชท
+          </button>
+
+          <a class="chat-back" href="contact.html">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าติดต่อสอบถาม
+          </a>
+        </aside>
+
+        <!-- Right: Chat Widget (Full page style) -->
+        <article class="chat-card-full card" id="chatWidget">
+          <div class="chat-head">
+            <div class="chat-head-left">
+              <span class="chat-avatar" aria-hidden="true">
+                <i class="fa-solid fa-robot"></i>
+              </span>
+              <div>
+                <div class="chat-title">SCI UNIT Assistant</div>
+                <div class="chat-status" id="chatStatus">
+                  ออนไลน์ • โหมดเดโม่
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="chat-toggle"
+              id="chatToggle"
+              type="button"
+              aria-label="ย่อ/ขยาย"
+            >
+              <i class="fa-solid fa-minus"></i>
+            </button>
+          </div>
+
+          <div class="chat-body" id="chatBody" aria-live="polite"></div>
+
+          <div class="chat-suggest" id="chatSuggest">
+            <button class="chip" data-q="วันเลือกตั้ง">
+              <i class="fa-regular fa-calendar"></i> วันเลือกตั้ง
+            </button>
+            <button class="chip" data-q="นโยบาย">
+              <i class="fa-solid fa-list-check"></i> นโยบาย
+            </button>
+            <button class="chip" data-q="ทำไมต้องเลือกพรรคเรา">
+              <i class="fa-solid fa-star"></i> ทำไมต้องเลือกเรา
+            </button>
+            <button class="chip" data-q="ช่องทางติดต่อ">
+              <i class="fa-solid fa-phone"></i> ช่องทางติดต่อ
+            </button>
+          </div>
+
+          <form class="chat-input" id="chatForm">
+            <input
+              id="chatText"
+              type="text"
+              placeholder="พิมพ์คำถาม… เช่น 'วันเลือกตั้ง' หรือ 'นโยบาย'"
+              autocomplete="off"
+            />
+            <button type="submit">
+              ส่ง <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </article>
+      </section>
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/chatbot-page.js"></script>
+    <script src="js/typewriter.js"></script>
+  </body>
+</html>

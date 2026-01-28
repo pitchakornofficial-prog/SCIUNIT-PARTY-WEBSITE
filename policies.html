@@ -1,14 +1,46 @@
 <!doctype html>
 <html lang="th">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SCI UNIT | นโยบาย</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POLICIES | SCI UNIT</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <div id="nav-root"></div>
+    <div id="app-nav"></div>
+
+    <main class="container page policies-page">
+      <header class="members-hero">
+        <h1 class="members-title">นโยบายพรรค</h1>
+        <p class="members-sub">
+          ยินดีต้อนรับสู่เว็บไซต์อย่างเป็นทางการของพรรค SCI UNIT
+        </p>
+
+        <p class="type-line">
+          พรรค SCI UNIT <span class="type-accent">พร้อมที่จะ</span>
+          <span id="typeTarget"></span><span class="cursor">|</span>
+        </p>
+      </header>
+
+      <!-- แถบแท็กกรอง -->
+      <section class="policies-tools">
+        <div class="policies-filters" id="policies-filters"></div>
+      </section>
+
+      <!-- การ์ดนโยบาย -->
+      <section id="policies-root" class="policies-root"></section>
+    </main>
+
+    <div id="app-footer"></div>
 
     <script src="js/main.js"></script>
+    <script src="js/policies.js"></script>
+    <script src="js/typewriter.js"></script>
   </body>
 </html>

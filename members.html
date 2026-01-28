@@ -1,46 +1,40 @@
 <!doctype html>
 <html lang="th">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SCI UNIT | ทำเนียบสมาชิก</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEMBERS | SCI UNIT</title>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/members.css" />
   </head>
 
   <body>
-    <!-- ถ้าคุณมีเมนูจาก main.js ใช้อยู่ ให้คงไว้ -->
-    <div id="nav-root"></div>
+    <div id="app-nav"></div>
 
-    <main class="container">
-      <div id="members-root"></div>
+    <main class="container page members-page">
+      <header class="members-hero">
+        <h1 class="members-title">ทำเนียบสมาชิก</h1>
+        <p class="members-sub">
+          ยินดีต้อนรับสู่เว็บไซต์อย่างเป็นทางการของพรรค SCI UNIT
+        </p>
+
+        <p class="type-line">
+          พรรค SCI UNIT <span class="type-accent">พร้อมที่จะ</span>
+          <span id="typeTarget"></span><span class="cursor">|</span>
+        </p>
+      </header>
+
+      <section id="members-root" class="members-root"></section>
     </main>
 
-    <!-- Modal -->
-    <div class="modal-backdrop" hidden></div>
-    <div
-      class="modal"
-      hidden
-      role="dialog"
-      aria-modal="true"
-      aria-label="รายละเอียดสมาชิก"
-    >
-      <button class="modal-close" type="button" aria-label="ปิด">✕</button>
-
-      <div class="modal-body">
-        <div class="modal-img">
-          <img id="mImg" alt="รูปสมาชิก" />
-        </div>
-        <div class="modal-info">
-          <div class="modal-role" id="mRole"></div>
-          <div class="modal-name" id="mName"></div>
-          <div class="modal-desc" id="mDesc"></div>
-        </div>
-      </div>
-    </div>
+    <div id="app-footer"></div>
 
     <script src="js/main.js"></script>
     <script src="js/members.js"></script>
+    <script src="js/typewriter.js"></script>
   </body>
 </html>

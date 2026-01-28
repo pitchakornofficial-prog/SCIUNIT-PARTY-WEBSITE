@@ -1,66 +1,115 @@
-(() => {
-  const MENU = [
-    { href: "index.html", label: "หน้าแรก", icon: "fa-house" },
-    { href: "about.html", label: "เกี่ยวกับพรรค", icon: "fa-circle-info" },
-    { href: "members.html", label: "ทำเนียบสมาชิก", icon: "fa-address-book" },
-    { href: "policies.html", label: "นโยบายพรรค", icon: "fa-clipboard-list" },
-    {
-      href: "why-us.html",
-      label: "ทำไมต้องเลือกพรรคเรา",
-      icon: "fa-check-to-slot",
-    },
-    { href: "contact.html", label: "ติดต่อสอบถาม", icon: "fa-envelope" },
-  ];
+const NAV_ITEMS = [
+  { label: "หน้าแรก", href: "index.html", icon: "fa-solid fa-house" },
+  {
+    label: "เกี่ยวกับพรรค",
+    href: "about.html",
+    icon: "fa-solid fa-circle-info",
+  },
+  {
+    label: "ทำเนียบสมาชิก",
+    href: "members.html",
+    icon: "fa-solid fa-people-group",
+  },
+  {
+    label: "นโยบายพรรค",
+    href: "policies.html",
+    icon: "fa-solid fa-clipboard-list",
+  },
+  { label: "ทำไมถึงเลือกเรา", href: "why-us.html", icon: "fa-solid fa-star" },
+  {
+    label: "ติดต่อสอบถาม",
+    href: "contact.html",
+    icon: "fa-solid fa-address-card",
+  },
+];
 
-  const root = document.getElementById("nav-root");
-  if (!root) return;
+const FOOTER_CREDIT = "©2026 SCI UNIT";
+
+function getCurrentFileName() {
+  const path = window.location.pathname;
+  const file = path.substring(path.lastIndexOf("/") + 1);
+  return file || "index.html";
+}
+
+function renderNav() {
+  const mount = document.getElementById("app-nav");
+  if (!mount) return;
+
+  const current = getCurrentFileName();
+
+  const wrap = document.createElement("div");
+  wrap.className = "app-nav-wrap";
+
+  const center = document.createElement("div");
+  center.className = "app-nav-center";
+
+  const scroller = document.createElement("div");
+  scroller.className = "app-nav-scroller";
 
   const nav = document.createElement("nav");
-  nav.className = "floating-nav";
-  nav.setAttribute("aria-label", "เมนูหลัก");
+  nav.className = "app-nav";
+  nav.setAttribute("aria-label", "Main navigation");
 
-  MENU.forEach((item) => {
+  NAV_ITEMS.forEach((item) => {
     const a = document.createElement("a");
     a.className = "nav-item";
     a.href = item.href;
-    a.innerHTML = `<i class="fa-solid ${item.icon}"></i><span>${item.label}</span>`;
+
+    if (current === item.href) a.classList.add("is-active");
+
+    const icon = document.createElement("i");
+    icon.className = item.icon;
+    icon.setAttribute("aria-hidden", "true");
+
+    const span = document.createElement("span");
+    span.textContent = item.label;
+
+    a.appendChild(icon);
+    a.appendChild(span);
     nav.appendChild(a);
   });
 
-  root.appendChild(nav);
+  scroller.appendChild(nav);
+  center.appendChild(scroller);
+  wrap.appendChild(center);
+  mount.replaceChildren(wrap);
 
-  // active ตามหน้าปัจจุบัน
-  const current = (
-    location.pathname.split("/").pop() || "index.html"
-  ).toLowerCase();
-  const links = [...nav.querySelectorAll(".nav-item")];
-
-  let active = links.find(
-    (a) => (a.getAttribute("href") || "").toLowerCase() === current,
+  scroller.addEventListener(
+    "wheel",
+    (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        scroller.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }
+    },
+    { passive: false },
   );
-  if (!active) active = links[0];
-  active.classList.add("is-active");
+}
 
-  // เลื่อนให้แท็บ active อยู่กลางแถบ
-  function centerActive() {
-    if (!active) return;
+function renderFooter() {
+  const mount = document.getElementById("app-footer");
+  if (!mount) return;
 
-    const navRect = nav.getBoundingClientRect();
-    const itemRect = active.getBoundingClientRect();
+  const footer = document.createElement("footer");
+  footer.className = "app-footer";
 
-    const navCenter = navRect.left + navRect.width / 2;
-    const itemCenter = itemRect.left + itemRect.width / 2;
+  const container = document.createElement("div");
+  container.className = "container";
 
-    const delta = itemCenter - navCenter;
-    const target = nav.scrollLeft + delta;
+  const inner = document.createElement("div");
+  inner.className = "footer-inner";
 
-    const max = nav.scrollWidth - nav.clientWidth;
-    nav.scrollTo({
-      left: Math.max(0, Math.min(target, max)),
-      behavior: "smooth",
-    });
-  }
+  const credit = document.createElement("div");
+  credit.textContent = FOOTER_CREDIT;
 
-  window.addEventListener("load", () => setTimeout(centerActive, 0));
-  window.addEventListener("resize", () => setTimeout(centerActive, 50));
-})();
+  inner.appendChild(credit);
+  container.appendChild(inner);
+  footer.appendChild(container);
+
+  mount.replaceChildren(footer);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderNav();
+  renderFooter();
+});
