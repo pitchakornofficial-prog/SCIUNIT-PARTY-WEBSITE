@@ -1,7 +1,4 @@
 (function showChatbotDisclaimer() {
-  const KEY = "sciunit_chatbot_disclaimer_seen";
-  if (localStorage.getItem(KEY)) return;
-
   const overlay = document.createElement("div");
   overlay.className = "chat-disclaimer-overlay";
   overlay.innerHTML = `
@@ -10,22 +7,22 @@
       <p>
         หน้านี้เป็น <b>แชทบอทแบบเดโม่</b><br />
         ไม่ใช่ระบบ AI จริง<br /><br />
-        คำตอบมาจากข้อมูลที่เตรียมไว้ล่วงหน้า
+        คำตอบทั้งหมดเป็นข้อมูลที่เตรียมไว้ล่วงหน้า
         อาจไม่ครบถ้วนหรือไม่ถูกต้อง 100%
       </p>
 
       <ul>
         <li>ใช้เพื่อให้ข้อมูลเบื้องต้นเท่านั้น</li>
-        <li>หากต้องการความถูกต้อง กรุณาติดต่อพรรคโดยตรง</li>
+        <li>ไม่สามารถแทนการติดต่อพรรคโดยตรงได้</li>
+        <li>กรุณาใช้วิจารณญาณในการรับข้อมูล</li>
       </ul>
-
+      <p style="font-size:12px;opacity:.65;margin-top:8px;">* เพื่อความโปร่งใสและความเข้าใจที่ถูกต้อง</p>
       <button id="acceptChatbot">เข้าใจแล้ว</button>
     </div>
   `;
   document.body.appendChild(overlay);
 
   document.getElementById("acceptChatbot").addEventListener("click", () => {
-    localStorage.setItem(KEY, "1");
     overlay.remove();
   });
 })();
